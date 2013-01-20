@@ -36,15 +36,6 @@
             </intent-filter>
         </activity>
 
-        <activity
-            android:name=".fragments.LockscreenButtons"
-            android:label="@string/lockscreen_buttons_title" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="com.crom.settings.SHORTCUT" />
-            </intent-filter>
-        </activity>
         <activity 
             android:name=".fragments.LockscreenTargets"
             android:label="Lockscreen Tragets" >
