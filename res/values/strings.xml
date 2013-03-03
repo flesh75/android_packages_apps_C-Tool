@@ -973,5 +973,8 @@
     <string name="low_battery_warning_policy_sound">Sound only</string>
     <string name="low_battery_warning_policy_disabled">Disabled</string>
 
+    <!-- Notification Behavior Preferences -->
+    <string name="notification_behaviour_title">Notification behavior</string>
+
     <!-- C-Tool -->
 </resources>
