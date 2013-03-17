@@ -39,6 +39,7 @@ public class PowerMenu extends SettingsPreferenceFragment implements
     private static final String KEY_EXPANDED_DESKTOP = "power_menu_expanded_desktop";
     private static final String KEY_PROFILES = "power_menu_profiles";
     private static final String KEY_AIRPLANE = "power_menu_airplane";
+    private static final String KEY_NAVBAR_HIDE = "show_navbar_hide";
     private static final String KEY_USER = "power_menu_user";
     private static final String KEY_SILENT = "power_menu_silent";
 
@@ -47,6 +48,7 @@ public class PowerMenu extends SettingsPreferenceFragment implements
     private ListPreference mExpandedDesktopPref;
     private CheckBoxPreference mProfilesPref;
     private CheckBoxPreference mAirplanePref;
+    private CheckBoxPreference mShowNavBarHide;
     private CheckBoxPreference mUserPref;
     private CheckBoxPreference mSilentPref;
 
@@ -85,6 +87,11 @@ public class PowerMenu extends SettingsPreferenceFragment implements
         mAirplanePref = (CheckBoxPreference) findPreference(KEY_AIRPLANE);
         mAirplanePref.setChecked((Settings.System.getInt(getContentResolver(),
                 Settings.System.POWER_MENU_AIRPLANE_ENABLED, 1) == 1));
+
+        mShowNavBarHide = (CheckBoxPreference) findPreference(KEY_NAVBAR_HIDE);
+        mShowNavBarHide.setChecked(Settings.System.getBoolean(getActivity()
+            .getContentResolver(), Settings.System.POWER_DIALOG_SHOW_NAVBAR_HIDE,
+            false));
 
         mUserPref = (CheckBoxPreference) findPreference(KEY_USER);
         if (!UserHandle.MU_ENABLED
@@ -144,6 +151,11 @@ public class PowerMenu extends SettingsPreferenceFragment implements
             Settings.System.putInt(getContentResolver(),
                     Settings.System.POWER_MENU_AIRPLANE_ENABLED,
                     value ? 1 : 0);
+        } else if (preference == mShowNavBarHide) {
+            Settings.System.putBoolean(getActivity().getContentResolver(),
+                Settings.System.POWER_DIALOG_SHOW_NAVBAR_HIDE,
+                ((CheckBoxPreference)preference).isChecked());
+            return true;
        } else if (preference == mUserPref) {
             value = mUserPref.isChecked();
             Settings.System.putInt(getContentResolver(),
