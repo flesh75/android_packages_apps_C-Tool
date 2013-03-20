@@ -36,9 +36,27 @@
             </intent-filter>
         </activity>
 
+        <activity 
+            android:name=".fragments.LockscreenTargets"
+            android:label="Lockscreen Tragets" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="com.carbon.settings.SHORTCUT" />
+            </intent-filter>
+        </activity>
+        <activity 
+            android:name=".fragments.LockscreenInterface"
+            android:label="@string/lock_screen_title" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="com.carbon.settings.SHORTCUT" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".fragments.PowerMenu"
-            android:label="@string/title_power_menu" >
+            android:label="@string/power_menu_title" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -47,7 +65,7 @@
         </activity>
         <activity
             android:name=".fragments.PowerWidget"
-            android:label="@string/title_power_widget" >
+            android:label="@string/power_widget_title" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
