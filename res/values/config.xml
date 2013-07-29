@@ -24,4 +24,7 @@
     <!-- Whether device has led charging feature -->
     <bool name="has_led_charging_feature">false</bool>
 
+    <!-- LED Flashlight -->
+    <bool name="has_led_flash">false</bool>
+
 </resources>
