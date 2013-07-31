@@ -32,7 +32,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
-import com.xylon.settings.R;
+import com.crom.settings.R;
 
 /**
  * A preference type that allows a user to choose a time
