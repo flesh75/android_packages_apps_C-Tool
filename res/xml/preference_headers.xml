@@ -27,9 +27,10 @@
         android:icon="@drawable/ic_crom_lockscreen" />
 
     <!-- Statusbar -->
-    <PreferenceScreen
+    <header
         android:id="@+id/status_bar"
         android:fragment="com.crom.settings.fragments.StatusBar"
         android:title="@string/status_bar_title"
         android:icon="@drawable/ic_crom_statusbar" />
+
 </preference-headers>
