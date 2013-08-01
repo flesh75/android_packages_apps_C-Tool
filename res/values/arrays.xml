@@ -289,7 +289,21 @@
         <item>9</item>
         <item>10</item>
         <item>11</item>
-        <item>12</item
+        <item>12</item>
+    </string-array>
+
+    <string-array name="circle_battery_animation_speed_entries" >
+        <item>@string/circle_battery_animation_speed_none</item>
+        <item>@string/circle_battery_animation_speed_slow</item>
+        <item>@string/circle_battery_animation_speed_stock</item>
+        <item>@string/circle_battery_animation_speed_fast</item>
+    </string-array>
+
+    <string-array name="circle_battery_animation_speed_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>3</item>
+        <item>5</item>
     </string-array>
 
     <string-array name="entries_status_bar_signal" translatable="false">
@@ -340,25 +354,6 @@
         <item>2</item>
         <item>3</item>
         <item>4</item>
-    </string-array>
-
-    <!-- Status bar auto-collapse behaviour -->
-    <string-array name="notification_drawer_collapse_on_dismiss_entries" translatable="false">
-        <item>@string/collapse_on_dismiss_never</item>
-        <item>@string/collapse_on_dismiss_if_empty</item>
-        <item>@string/collapse_on_dismiss_if_no_clearable</item>
-    </string-array>
-
-    <string-array name="notification_drawer_collapse_on_dismiss_summaries" translatable="false">
-        <item>@string/collapse_on_dismiss_never_summary</item>
-        <item>@string/collapse_on_dismiss_if_empty_summary</item>
-        <item>@string/collapse_on_dismiss_if_no_clearable_summary</item>
-    </string-array>
-
-    <string-array name="notification_drawer_collapse_on_dismiss_values" translatable="false">
-        <item>0</item>
-        <item>1</item>
-        <item>2</item>
     </string-array>
 
 </resources>
