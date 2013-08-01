@@ -69,9 +69,9 @@ public class CreateShortcut extends LauncherActivity {
         else if (c.equals("PowerMenu"))
             return R.drawable.ic_crom_powermenu;
         else if (c.equals("PieHeader"))
-            return R.drawable.ic_xy_crom_pie;
+            return R.drawable.ic_crom_pie;
         else if (c.equals("Lockscreen"))
-            return R.drawable.ic_xy_crom_lockscreen;
+            return R.drawable.ic_crom_lockscreen;
         else
             return R.mipmap.ic_launcher;
     }

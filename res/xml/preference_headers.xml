@@ -10,7 +10,6 @@
         android:title="@string/lock_screen_title"
         android:icon="@drawable/ic_crom_lockscreen" />
 
-
     <!-- Power menu -->
     <header
         android:id="@+id/power_menu"
