@@ -51,7 +51,7 @@
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="com.carbon.settings.SHORTCUT" />
+                <category android:name="com.crom.settings.SHORTCUT" />
             </intent-filter>
         </activity>
         <activity 
@@ -60,7 +60,7 @@
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="com.carbon.settings.SHORTCUT" />
+                <category android:name="com.crom.settings.SHORTCUT" />
             </intent-filter>
         </activity>
         <activity
