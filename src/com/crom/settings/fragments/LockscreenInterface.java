@@ -16,6 +16,7 @@
 package com.crom.settings.fragments;
 
 import android.os.Bundle;
+import android.content.ContentResolver;
 import android.preference.CheckBoxPreference;
 import android.preference.ListPreference;
 import android.preference.Preference;
