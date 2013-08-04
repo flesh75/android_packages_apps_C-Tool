@@ -10,6 +10,13 @@
         android:title="@string/lock_screen_title"
         android:icon="@drawable/ic_crom_lockscreen" />
 
+    <!-- Navigation -->
+    <header
+        android:id="@+id/nav_bar"
+        android:fragment="com.crom.settings.fragments.Navbar"
+        android:title="@string/navbar_title"
+        android:icon="@drawable/ic_crom_navbar" />
+
     <!-- Power menu -->
     <header
         android:id="@+id/power_menu"
@@ -32,5 +39,12 @@
         android:fragment="com.crom.settings.fragments.StatusBar"
         android:title="@string/status_bar_title"
         android:icon="@drawable/ic_crom_statusbar" />
+
+    <!-- Statusbar Toggles -->
+    <header
+        android:id="@+id/statusbar_toggles"
+        android:fragment="com.crom.settings.fragments.StatusBarToggles"
+        android:title="@string/toggles_title"
+        android:icon="@drawable/ic_crom_quicksettings" />
 
 </preference-headers>
