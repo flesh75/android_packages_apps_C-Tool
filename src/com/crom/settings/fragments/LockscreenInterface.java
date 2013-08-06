@@ -42,7 +42,7 @@ import android.widget.Toast;
 
 import com.crom.settings.R;
 import com.crom.settings.SettingsPreferenceFragment;
-import com.android.settings.notificationlight.ColorPickerView;
+import com.crom.settings.widgets.ColorPickerView;
 
 import net.margaritov.preference.colorpicker.ColorPickerPreference;
 
