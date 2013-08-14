@@ -3,6 +3,7 @@
    <header
         android:title="@string/user_interface" />
 
+    <!-- Halo -->
     <header
         android:id="@+id/halo"
         android:fragment="com.crom.settings.fragments.Halo"
