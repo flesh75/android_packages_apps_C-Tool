@@ -50,6 +50,7 @@ import android.text.Spannable;
 import android.util.Log;
 import android.view.Display;
 import android.view.Window;
+import android.widget.EditText;
 import android.widget.AdapterView.AdapterContextMenuInfo;
 import android.widget.EditText;
 
@@ -90,6 +91,8 @@ public class NotificationDrawerStyle extends SettingsPreferenceFragment implemen
 
     private ContentResolver mResolver;
     private Activity mActivity;
+
+    String mCustomLabelText = null;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
