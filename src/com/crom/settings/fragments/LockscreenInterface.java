@@ -208,8 +208,6 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
         } else if (preference == mMusicControls) {
             boolean value = (Boolean) objValue;
             Settings.System.putInt(cr, Settings.System.LOCKSCREEN_MUSIC_CONTROLS, value ? 1 : 0);
-<<<<<<< HEAD:src/com/crom/settings/fragments/LockscreenInterface.java
-=======
             return true;
         } else if (preference == mCustomBackground) {
             int indexOf = mCustomBackground.findIndexOfValue(objValue.toString());
@@ -310,7 +308,6 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
             Settings.System.putFloat(getActivity().getContentResolver(),
                     Settings.System.LOCKSCREEN_ALPHA, val / 100);
             return true;
->>>>>>> 0eff82b... Settings: customizable slim lockscreen background (2/2):src/com/crom/settings/fragments/LockscreenInterface.java
         }
         return false;
     }
