@@ -53,7 +53,7 @@ import android.widget.AdapterView.AdapterContextMenuInfo;
 
 import com.crom.settings.R;
 import com.crom.settings.SettingsPreferenceFragment;
-import com.crom.settings.widget.SeekBarPreference;
+import com.crom.settings.widgets.SeekBarPreference;
 import net.margaritov.preference.colorpicker.ColorPickerView;
 
 import java.util.ArrayList;

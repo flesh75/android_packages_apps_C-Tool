@@ -40,7 +40,7 @@ import android.widget.Toast;
 import com.crom.settings.R;
 import com.crom.settings.SettingsPreferenceFragment;
 import com.crom.settings.Utils;
-import com.crom.settings.widget.SeekBarPreference;
+import com.crom.settings.widgets.SeekBarPreference;
 
 import java.io.File;
 import java.io.IOException;
@@ -89,15 +89,16 @@ public class LockscreenInterface extends SettingsPreferenceFragment implements
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        ContentResolver resolver = getContentResolver();
         mContext = getActivity();
         mActivity = getActivity();
         mResolver = mActivity.getContentResolver();
 
-        mIsScreenLarge = Utils.isTablet(getActivity());
-
         addPreferencesFromResource(R.xml.lockscreen_interface_settings);
-        prefs = getPreferenceScreen();
+
+        ContentResolver resolver = getContentResolver();
+        PreferenceScreen prefs = getPreferenceScreen();
+
+        mIsScreenLarge = Utils.isTablet(getActivity());
 
         // Battery status
         mBatteryStatus = (ListPreference) findPreference(KEY_ALWAYS_BATTERY);
