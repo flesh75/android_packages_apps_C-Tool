@@ -62,4 +62,17 @@
         android:title="@string/toggles_title"
         android:icon="@drawable/ic_crom_quicksettings" />
 
+   <header
+        android:title="@string/system" />
+
+   <header
+        android:id="@+id/device_tools"
+        android:title="@string/device_tools_title"
+        android:icon="@drawable/ic_crom_device" >
+        <intent
+            android:action="com.crom.action.LAUNCH_DEVICE_SETTINGS"
+            android:targetPackage="com.crom.settings"
+            android:targetClass="com.crom.settings.device.DeviceTools" />
+   </header>
+
 </preference-headers>
