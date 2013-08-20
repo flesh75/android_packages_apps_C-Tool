@@ -32,9 +32,7 @@ import android.util.Log;
 import com.crom.settings.R;
 
 // import htc one stuffs
-import com.crom.settings.device.htc.ButtonLightFragmentActivity;
-import com.crom.settings.device.htc.SensorsFragmentActivity;
-import com.crom.settings.device.htc.TouchscreenFragmentActivity;
+import com.crom.settings.device.htc.*;
 // import the other stuffs
 
 import java.util.ArrayList;
