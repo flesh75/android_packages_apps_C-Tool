@@ -30,6 +30,13 @@
                 android:summary="@string/color_calibration_summary"
                 android:persistent="false" />
 
+        <com.crom.settings.fragments.DisplayGamma
+                android:key="gamma_tuning"
+                android:title="@string/gamma_tuning_title_head"
+                android:dialogTitle="@string/gamma_tuning_title_head"
+                android:summary="@string/gamma_tuning_summary_head"
+                android:persistent="false" />
+
     </PreferenceCategory>
 
     <PreferenceCategory
@@ -44,6 +51,7 @@
 
     </PreferenceCategory>
 
+<<<<<<< HEAD
     <PreferenceCategory
         android:title="@string/headset_category_title" >
 
@@ -55,4 +63,6 @@
 
     </PreferenceCategory>
 
+=======
+>>>>>>> 793bddc... Add basic-level gamma calibration to hardware tunables
 </PreferenceScreen>
