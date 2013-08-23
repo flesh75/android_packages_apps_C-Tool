@@ -22,7 +22,6 @@
             android:key="transparency_dialog"
             android:title="@string/transparency_dialog_title" />
 
-<<<<<<< HEAD
         <PreferenceScreen
             android:key="color_settings"
             android:title="@string/color_settings_title" >
@@ -31,8 +30,6 @@
                     android:targetClass="com.crom.settings.fragments.ColorSettings" />
         </PreferenceScreen>
 
-=======
->>>>>>> 7e0ac5c... Just cleaning up
     </PreferenceCategory>
 
     <PreferenceCategory
