@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.crom.settings.device;
+package com.carbon.settings.device;
 
 import android.app.ActionBar;
 import android.app.ActionBar.Tab;
@@ -29,10 +29,10 @@ import android.support.v4.view.ViewPager;
 import android.view.MenuItem;
 import android.util.Log;
 
-import com.crom.settings.R;
+import com.carbon.settings.R;
 
 // import htc one stuffs
-import com.crom.settings.device.htc.*;
+import com.carbon.settings.device.htc.*;
 // import the other stuffs
 
 import java.util.ArrayList;
@@ -41,8 +41,8 @@ public class DeviceTools extends FragmentActivity {
 
     private static final String TAG = "DeviceTools";
 
-    public static final String SHARED_PREFERENCES_BASENAME = "com.crom.settings.device";
-    public static final String ACTION_UPDATE_PREFERENCES = "com.crom.settings.device.UPDATE";
+    public static final String SHARED_PREFERENCES_BASENAME = "com.carbon.settings.device";
+    public static final String ACTION_UPDATE_PREFERENCES = "com.carbon.settings.device.UPDATE";
 
     ViewPager mViewPager;
     TabsAdapter mTabsAdapter;

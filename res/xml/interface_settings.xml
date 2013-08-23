@@ -22,24 +22,16 @@
             android:key="transparency_dialog"
             android:title="@string/transparency_dialog_title" />
 
-        <PreferenceScreen
-            android:key="color_settings"
-            android:title="@string/color_settings_title" >
-            <intent android:action="android.intent.action.MAIN"
-                    android:targetPackage="com.crom.settings"
-                    android:targetClass="com.crom.settings.fragments.ColorSettings" />
-        </PreferenceScreen>
-
     </PreferenceCategory>
 
     <PreferenceCategory
         android:key="advanced_options"
         android:title="@string/advanced_settings" >
 
-     <PreferenceScreen
-         android:key="recents_ram_bar"
-         android:fragment="com.crom.settings.fragments.RamBar"
-         android:title="@string/ram_bar" />
+        <PreferenceScreen
+            android:key="recents_ram_bar"
+            android:fragment="com.crom.settings.fragments.RamBar"
+            android:title="@string/ram_bar" />
 
     </PreferenceCategory>
 

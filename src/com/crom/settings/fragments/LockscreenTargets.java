@@ -376,7 +376,7 @@ public class LockscreenTargets extends Fragment implements
             activeLayer.setDrawableByLayerId(0, new InsetDrawable(activeBack, 0, 0, 0, 0));
         }
 
-       item.defaultIcon = getPickedIconFromDialog();
+        item.defaultIcon = getPickedIconFromDialog();
         item.uri = uri;
         item.iconType = iconType;
         item.iconSource = iconSource;
@@ -388,7 +388,7 @@ public class LockscreenTargets extends Fragment implements
     }
 
     private void setIconForDialog(Drawable icon) {
-        // need to mutate the drawable here to not share drawable state with GlowPadView
+        // need to mutate the drawable here to not share drawable state with GlowPadView 
         mDialogIcon.setImageDrawable(icon.getConstantState().newDrawable().mutate());
     }
 
@@ -404,7 +404,7 @@ public class LockscreenTargets extends Fragment implements
 
             mDialogLabel.setText(friendlyName);
             mDialogLabel.setTag(uri);
-            // this is a fresh drawable, so we can assign it directly
+            // this is a fresh drawable, so we can assign it directly 
             mDialogIcon.setImageDrawable(resizeForDialog(icon));
             mDialogIcon.setTag(null);
         } catch (URISyntaxException e) {

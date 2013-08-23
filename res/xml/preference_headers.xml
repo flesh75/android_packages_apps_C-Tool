@@ -23,7 +23,6 @@
         android:fragment="com.crom.settings.fragments.LockscreenInterface"
         android:title="@string/lockscreen_title"
         android:icon="@drawable/ic_crom_lockscreen" />
-    
 
     <!-- Navigation -->
     <header

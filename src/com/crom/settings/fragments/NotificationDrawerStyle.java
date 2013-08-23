@@ -285,7 +285,7 @@ public class NotificationDrawerStyle extends SettingsPreferenceFragment implemen
                             Settings.System.CUSTOM_CARRIER_LABEL, value);
                     updateCustomLabelTextSummary();
                     Intent i = new Intent();
-                    i.setAction("com.carbon.settings.LABEL_CHANGED");
+                    i.setAction("com.crom.settings.LABEL_CHANGED");
                     mContext.sendBroadcast(i);
                 }
             });
