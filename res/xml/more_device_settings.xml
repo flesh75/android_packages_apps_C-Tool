@@ -44,25 +44,11 @@
         android:title="@string/sensors_motors_title" >
 
         <com.crom.settings.fragments.VibratorIntensity
-            android:key="vibrator_intensity"
+            android:key="vibration_intensity"
             android:title="@string/vibrator_intensity_title"
             android:dialogTitle="@string/vibrator_intensity_title"
             android:persistent="false" />
 
     </PreferenceCategory>
 
-<<<<<<< HEAD
-    <PreferenceCategory
-        android:title="@string/headset_category_title" >
-
-        <CheckBoxPreference
-            android:key="headset_connect_player"
-            android:title="@string/headset_connect_player_title"
-            android:summary="@string/headset_connect_player_summary"
-            android:persistent="false" />
-
-    </PreferenceCategory>
-
-=======
->>>>>>> 793bddc... Add basic-level gamma calibration to hardware tunables
 </PreferenceScreen>
