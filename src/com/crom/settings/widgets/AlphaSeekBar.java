@@ -1,9 +1,4 @@
-<<<<<<< HEAD:src/com/crom/settings/widgets/AlphaSeekBar.java
-
 package com.crom.settings.widgets;
-=======
-package com.carbon.settings.widgets;
->>>>>>> 019da13... Ribbons:src/com/carbon/settings/widgets/AlphaSeekBar.java
 
 import android.app.Activity;
 import android.content.Context;
@@ -12,12 +7,7 @@ import android.widget.LinearLayout;
 import android.widget.SeekBar;
 import android.widget.SeekBar.OnSeekBarChangeListener;
 import android.widget.TextView;
-<<<<<<< HEAD:src/com/crom/settings/widgets/AlphaSeekBar.java
-
 import com.crom.settings.R;
-=======
-import com.carbon.settings.R;
->>>>>>> 019da13... Ribbons:src/com/carbon/settings/widgets/AlphaSeekBar.java
 
 public class AlphaSeekBar extends LinearLayout implements OnSeekBarChangeListener {
 
