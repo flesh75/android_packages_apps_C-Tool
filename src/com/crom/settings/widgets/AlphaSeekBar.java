@@ -1,17 +1,23 @@
+<<<<<<< HEAD:src/com/crom/settings/widgets/AlphaSeekBar.java
 
 package com.crom.settings.widgets;
+=======
+package com.carbon.settings.widgets;
+>>>>>>> 019da13... Ribbons:src/com/carbon/settings/widgets/AlphaSeekBar.java
 
 import android.app.Activity;
 import android.content.Context;
-import android.os.Bundle;
-import android.os.Parcelable;
 import android.util.AttributeSet;
 import android.widget.LinearLayout;
 import android.widget.SeekBar;
 import android.widget.SeekBar.OnSeekBarChangeListener;
 import android.widget.TextView;
+<<<<<<< HEAD:src/com/crom/settings/widgets/AlphaSeekBar.java
 
 import com.crom.settings.R;
+=======
+import com.carbon.settings.R;
+>>>>>>> 019da13... Ribbons:src/com/carbon/settings/widgets/AlphaSeekBar.java
 
 public class AlphaSeekBar extends LinearLayout implements OnSeekBarChangeListener {
 
@@ -64,10 +70,11 @@ public class AlphaSeekBar extends LinearLayout implements OnSeekBarChangeListene
         } else if (p > 255) {
             p = 255;
         }
-        if (mSeekBar != null)
+        if (mSeekBar != null) {
             mSeekBar.setProgress(p);
+        }
     }
-    
+
     @Override
     public void setEnabled(boolean enabled) {
         super.setEnabled(enabled);
