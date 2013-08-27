@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2012 The crom Project
+ * Copyright (C) 2012 The C-RoM Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -145,19 +145,6 @@ public class InterfaceSettings extends SettingsPreferenceFragment
         mShowActionOverflow.setChecked(Settings.System.getInt(cr,
                 Settings.System.UI_FORCE_OVERFLOW_BUTTON, 0) == 1);
 
-        mRamBar = findPreference(KEY_RECENTS_RAM_BAR);
-        updateRamBar();
-
-        // Dont display the lock clock preference if its not installed
-        removePreferenceIfPackageNotInstalled(findPreference(KEY_LOCK_CLOCK));
-
-        setHasOptionsMenu(true);
-    }
-
-    @Override
-    public boolean onPreferenceChange(Preference preference, Object newValue) {
-         return false;
-
         //ListView Animations
         mListViewAnimation = (ListPreference) findPreference(KEY_LISTVIEW_ANIMATION);
         int listviewanimation = Settings.System.getInt(getActivity().getContentResolver(),
@@ -173,6 +160,35 @@ public class InterfaceSettings extends SettingsPreferenceFragment
         mListViewInterpolator.setSummary(mListViewInterpolator.getEntry());
         mListViewInterpolator.setOnPreferenceChangeListener(this);
 
+        mRamBar = findPreference(KEY_RECENTS_RAM_BAR);
+        updateRamBar();
+
+        // Dont display the lock clock preference if its not installed
+        removePreferenceIfPackageNotInstalled(findPreference(KEY_LOCK_CLOCK));
+
+        setHasOptionsMenu(true);
+    }
+
+    @Override
+    public boolean onPreferenceChange(Preference preference, Object newValue) {
+        if (preference == mListViewAnimation) {
+            int listviewanimation = Integer.valueOf((String) newValue);
+            int index = mListViewAnimation.findIndexOfValue((String) newValue);
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.LISTVIEW_ANIMATION,
+                    listviewanimation);
+            mListViewAnimation.setSummary(mListViewAnimation.getEntries()[index]);
+            return true;
+        } else if (preference == mListViewInterpolator) {
+            int listviewinterpolator = Integer.valueOf((String) newValue);
+            int index = mListViewInterpolator.findIndexOfValue((String) newValue);
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.LISTVIEW_INTERPOLATOR,
+                    listviewinterpolator);
+            mListViewInterpolator.setSummary(mListViewInterpolator.getEntries()[index]);
+            return true;
+        }
+         return false;
      }
 
     private void updateRamBar() {
@@ -207,22 +223,6 @@ public class InterfaceSettings extends SettingsPreferenceFragment
             ft.addToBackStack("hardware_keys_binding");
             ft.replace(this.getId(), fragment);
             ft.commit();
-            return true;
-        } else if (preference == mListViewAnimation) {
-            int listviewanimation = Integer.valueOf((String) newValue);
-            int index = mListViewAnimation.findIndexOfValue((String) newValue);
-            Settings.System.putInt(getActivity().getContentResolver(),
-                    Settings.System.LISTVIEW_ANIMATION,
-                    listviewanimation);
-            mListViewAnimation.setSummary(mListViewAnimation.getEntries()[index]);
-            return true;
-        } else if (preference == mListViewInterpolator) {
-            int listviewinterpolator = Integer.valueOf((String) newValue);
-            int index = mListViewInterpolator.findIndexOfValue((String) newValue);
-            Settings.System.putInt(getActivity().getContentResolver(),
-                    Settings.System.LISTVIEW_INTERPOLATOR,
-                    listviewinterpolator);
-            mListViewInterpolator.setSummary(mListViewInterpolator.getEntries()[index]);
             return true;
         } else if (preference == mShowActionOverflow) {
             boolean enabled = mShowActionOverflow.isChecked();
