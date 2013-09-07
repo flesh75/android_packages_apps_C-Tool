@@ -38,6 +38,7 @@ public class PowerMenu extends SettingsPreferenceFragment implements
 
     private static final String KEY_REBOOT = "power_menu_reboot";
     private static final String KEY_SCREENSHOT = "power_menu_screenshot";
+    private static final String KEY_TORCH = "power_menu_torch";
     private static final String KEY_EXPANDED_DESKTOP = "power_menu_expanded_desktop";
     private static final String KEY_PROFILES = "power_menu_profiles";
     private static final String KEY_AIRPLANE = "power_menu_airplane";
@@ -47,6 +48,7 @@ public class PowerMenu extends SettingsPreferenceFragment implements
 
     private SwitchPreference mRebootPref;
     private SwitchPreference mScreenshotPref;
+    private SwitchPreference mTorchPref;
     private ListPreference mExpandedDesktopPref;
     private SwitchPreference mProfilesPref;
     private SwitchPreference mAirplanePref;
@@ -71,6 +73,11 @@ public class PowerMenu extends SettingsPreferenceFragment implements
         mScreenshotPref.setChecked(Settings.System.getBoolean(mContentRes,
                 Settings.System.POWER_MENU_SCREENSHOT_ENABLED, false));
         mScreenshotPref.setOnPreferenceChangeListener(this);
+
+        mTorchPref = (SwitchPreference) findPreference(KEY_TORCH);
+        mTorchPref.setChecked(Settings.System.getBoolean(mContentRes,
+                Settings.System.POWER_MENU_TORCH_ENABLED, false));
+        mTorchPref.setOnPreferenceChangeListener(this);
 
         mExpandedDesktopPref = (ListPreference) prefSet.findPreference(KEY_EXPANDED_DESKTOP);
         mExpandedDesktopPref.setOnPreferenceChangeListener(this);
@@ -114,6 +121,9 @@ public class PowerMenu extends SettingsPreferenceFragment implements
                 Settings.System.POWER_MENU_SOUND_ENABLED, true));
         mSoundPref.setOnPreferenceChangeListener(this);
 
+        if (!hasTorch) {
+            getPreferenceScreen().removePreference(mTorchPref);
+        }
     }
 
     public boolean onPreferenceChange(Preference preference, Object value) {
@@ -137,6 +147,11 @@ public class PowerMenu extends SettingsPreferenceFragment implements
         } else if (preference == mScreenshotPref) {
             Settings.System.putBoolean(mContentRes,
                     Settings.System.POWER_MENU_SCREENSHOT_ENABLED,
+                    (Boolean) value);
+            return true;
+        } else if (preference == mTorchPref) {
+            Settings.System.putBoolean(mContentRes,
+                    Settings.System.POWER_MENU_TORCH_ENABLED,
                     (Boolean) value);
             return true;
         } else if (preference == mRebootPref) {
