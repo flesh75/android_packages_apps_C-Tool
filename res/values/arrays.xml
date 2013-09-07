@@ -915,7 +915,7 @@
         <item>6</item>
         <item>7</item>
     </string-array>
-    <!-- C-RoM -->
+
     <!-- Brightness slider -->
     <string-array name="brightness_location_entries">
         <item>@string/brightness_slider_top</item>
@@ -927,6 +927,18 @@
         <item>1</item>
         <item>2</item>
         <item>3</item>
+    </string-array>
+
+     <string-array name="pref_lockscreen_glowtorch_entries" translatable="false">
+        <item>@string/lockscreen_torch_off</item>
+        <item>@string/lockscreen_torch_lockcircle</item>
+        <item>@string/lockscreen_torch_navring</item>
+    </string-array>
+
+    <string-array name="pref_lockscreen_glowtorch_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
     </string-array>
 
     <!-- C-RoM -->
