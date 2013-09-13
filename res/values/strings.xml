@@ -1052,9 +1052,6 @@
     <string name="low_battery_warning_policy_sound">Sound only</string>
     <string name="low_battery_warning_policy_disabled">Disabled</string>
 
-    <!-- Notification Behavior Preferences -->
-    <string name="notification_behaviour_title">Notification behavior</string>
-
     <!-- Screen state service -->
     <string name="screen_state_toggles_title">Suspend Actions</string>
     <string name="screen_state_toggles_enable_title">Enable</string>
@@ -1067,6 +1064,12 @@
     <string name="screen_state_toggles_gps_summary">GPS based location service will be disabled on screen off</string>
     <string name="screen_state_toggles_mobile_data">Disable mobile data</string>
     <string name="screen_state_toggles_mobile_data_summary">Mobile data will be disabled on screen off</string>
+
+    <!-- Notification Behavior Preferences -->
+    <string name="notification_behaviour_title">Notification behavior</string>
+
+    <!-- Fast Charge -->
+    <string name="fast_charge_not_supported">Fast Charge is not supported by the current kernel</string>
 
     <!-- C-Tool -->
 </resources>
