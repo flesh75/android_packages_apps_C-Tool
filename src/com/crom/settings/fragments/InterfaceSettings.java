@@ -102,16 +102,16 @@ public class InterfaceSettings extends SettingsPreferenceFragment
     private CheckBoxPreference mUseAltResolver;
     private CheckBoxPreference mShowAssistButton;
     private CheckBoxPreference mShowWifiName;
-    private Preference mColorSettings;
+    private Preference mLcdDensity;
     private Preference mHardwareKeys;
     private Preference mRamBar;
     private ListPreference mLowBatteryWarning;
 
     Context mContext;
 
-    Configuration mCurConfig = new Configuration();
-
     private static ContentResolver mContentResolver;
+
+    private int newDensityValue;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -167,6 +167,16 @@ public class InterfaceSettings extends SettingsPreferenceFragment
         mShowWifiName = (CheckBoxPreference) findPreference(PREF_NOTIFICATION_SHOW_WIFI_SSID);
         mShowWifiName.setChecked(Settings.System.getInt(getActivity().getContentResolver(),
                 Settings.System.NOTIFICATION_SHOW_WIFI_SSID, 0) == 1);
+
+        mLcdDensity = findPreference("lcd_density_setup");
+        mLcdDensity.setOnPreferenceChangeListener(this);
+        String currentProperty = SystemProperties.get("ro.sf.lcd_density");
+        try {
+            newDensityValue = Integer.parseInt(currentProperty);
+        } catch (Exception e) {
+            prefSet.removePreference(mLcdDensity);
+        }
+        mLcdDensity.setSummary(getResources().getString(R.string.current_lcd_density) + currentProperty);
 
         PackageManager pm = getPackageManager();
         boolean isMobileData = pm.hasSystemFeature(PackageManager.FEATURE_TELEPHONY);
