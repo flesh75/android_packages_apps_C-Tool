@@ -26,6 +26,8 @@ import android.preference.PreferenceScreen;
 import android.provider.Settings;
 import android.content.Intent;
 import android.util.Log;
+import android.net.ConnectivityManager;
+import android.content.Context;
 
 import com.crom.settings.SettingsPreferenceFragment;
 import com.crom.settings.R;
@@ -59,10 +61,19 @@ public class ScreenStateToggles extends SettingsPreferenceFragment implements On
         
         mEnableScreenStateTogglesTwoG = (CheckBoxPreference) prefSet.findPreference(
                 SCREEN_STATE_TOOGLES_TWOG);
-        mEnableScreenStateTogglesTwoG.setChecked(
-            Settings.System.getBoolean(getContentResolver(), Settings.System.SCREEN_STATE_TWOG, false));
-        mEnableScreenStateTogglesTwoG.setOnPreferenceChangeListener(this);
+        
+        ConnectivityManager cm = (ConnectivityManager) mContext.getSystemService(Context.CONNECTIVITY_SERVICE);
 
+        if (!cm.isNetworkSupported(ConnectivityManager.TYPE_MOBILE)){
+            getPreferenceScreen().removePreference(mEnableScreenStateTogglesTwoG);
+        } else {
+            mEnableScreenStateTogglesTwoG.setChecked(
+                Settings.System.getBoolean(getContentResolver(), Settings.System.SCREEN_STATE_TWOG, false));
+            mEnableScreenStateTogglesTwoG.setOnPreferenceChangeListener(this);
+            mEnableScreenStateTogglesTwoG.setEnabled(enabled);
+        }
+        
+        // TODO: check if gps is available on this device?
         mEnableScreenStateTogglesGps = (CheckBoxPreference) prefSet.findPreference(
                 SCREEN_STATE_TOOGLES_GPS);
         mEnableScreenStateTogglesGps.setChecked(
@@ -71,13 +82,17 @@ public class ScreenStateToggles extends SettingsPreferenceFragment implements On
 
         mEnableScreenStateTogglesMobileData = (CheckBoxPreference) prefSet.findPreference(
                 SCREEN_STATE_TOOGLES_MOBILE_DATA);
-        mEnableScreenStateTogglesMobileData.setChecked(
-            Settings.System.getBoolean(getContentResolver(), Settings.System.SCREEN_STATE_MOBILE_DATA, false));
-        mEnableScreenStateTogglesMobileData.setOnPreferenceChangeListener(this);
 
-        mEnableScreenStateTogglesTwoG.setEnabled(enabled);
+        if (!cm.isNetworkSupported(ConnectivityManager.TYPE_MOBILE)){
+            getPreferenceScreen().removePreference(mEnableScreenStateTogglesMobileData);
+        } else {
+            mEnableScreenStateTogglesMobileData.setChecked(
+                Settings.System.getBoolean(getContentResolver(), Settings.System.SCREEN_STATE_MOBILE_DATA, false));
+            mEnableScreenStateTogglesMobileData.setOnPreferenceChangeListener(this);
+            mEnableScreenStateTogglesMobileData.setEnabled(enabled);
+        }
+        
         mEnableScreenStateTogglesGps.setEnabled(enabled);
-        mEnableScreenStateTogglesMobileData.setEnabled(enabled);
     }
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
@@ -95,9 +110,13 @@ public class ScreenStateToggles extends SettingsPreferenceFragment implements On
                 getActivity().stopService(service);
             }
             
-            mEnableScreenStateTogglesTwoG.setEnabled(value);
+            if (mEnableScreenStateTogglesTwoG != null){
+                mEnableScreenStateTogglesTwoG.setEnabled(value);
+            }
             mEnableScreenStateTogglesGps.setEnabled(value);
-            mEnableScreenStateTogglesMobileData.setEnabled(value);
+            if (mEnableScreenStateTogglesMobileData != null){
+                mEnableScreenStateTogglesMobileData.setEnabled(value);
+            }
             return true;
         } else if (preference == mEnableScreenStateTogglesTwoG) {
             Settings.System.putBoolean(getContentResolver(),
