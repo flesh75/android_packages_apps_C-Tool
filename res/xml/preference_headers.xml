@@ -97,8 +97,8 @@
 
     <header
         android:id="@+id/screen_state_service"
-        android:fragment="com.aokp.romcontrol.fragments.ScreenStateToggles"
-        android:icon="@drawable/ic_rom_control_screen_state"
+        android:fragment="com.crom.settings.fragments.ScreenStateToggles"
+        android:icon="@drawable/ic_crom_screen_state"
         android:title="@string/screen_state_toggles_title" />
 
 </preference-headers>
