@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2012 The C-RoM Project
+ * Copyright (C) 2012 The crom Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -100,12 +100,7 @@ public class InterfaceSettings extends SettingsPreferenceFragment
     private CheckBoxPreference mShowActionOverflow;
     private CheckBoxPreference mUseAltResolver;
     private CheckBoxPreference mShowAssistButton;
-<<<<<<< HEAD:src/com/crom/settings/fragments/InterfaceSettings.java
-    private CheckBoxPreference mShowWifiName;
     private Preference mLcdDensity;
-=======
-    private Preference mColorSettings;
->>>>>>> 6f04ab1... Initial cleanup:src/com/carbon/settings/fragments/InterfaceSettings.java
     private Preference mHardwareKeys;
     private Preference mRamBar;
     private ListPreference mLowBatteryWarning;
@@ -167,11 +162,6 @@ public class InterfaceSettings extends SettingsPreferenceFragment
         // Dont display the lock clock preference if its not installed
         removePreferenceIfPackageNotInstalled(findPreference(KEY_LOCK_CLOCK));
 
-<<<<<<< HEAD:src/com/crom/settings/fragments/InterfaceSettings.java
-        mShowWifiName = (CheckBoxPreference) findPreference(PREF_NOTIFICATION_SHOW_WIFI_SSID);
-        mShowWifiName.setChecked(Settings.System.getInt(getActivity().getContentResolver(),
-                Settings.System.NOTIFICATION_SHOW_WIFI_SSID, 0) == 1);
-
         mLcdDensity = findPreference("lcd_density_setup");
         mLcdDensity.setOnPreferenceChangeListener(this);
         String currentProperty = SystemProperties.get("ro.sf.lcd_density");
@@ -182,16 +172,6 @@ public class InterfaceSettings extends SettingsPreferenceFragment
         }
         mLcdDensity.setSummary(getResources().getString(R.string.current_lcd_density) + currentProperty);
 
-        PackageManager pm = getPackageManager();
-        boolean isMobileData = pm.hasSystemFeature(PackageManager.FEATURE_TELEPHONY);
-
-        if (!Utils.isPhone(getActivity()) || !isMobileData) {
-            // Nothing for tablets, large screen devices and non Wifi devices remove options
-            prefSet.removePreference(mShowWifiName);
-        }
-
-=======
->>>>>>> 6f04ab1... Initial cleanup:src/com/carbon/settings/fragments/InterfaceSettings.java
         setHasOptionsMenu(true);
     }
 
