@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.crom.settings.fragments;
+package com.crom.settings.fragments.statusbar;
 
 import android.provider.Settings;
 import android.content.Context;

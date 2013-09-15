@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.crom.settings.fragments;
+package com.crom.settings.fragments.statusbar;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -62,7 +62,7 @@ import net.margaritov.preference.colorpicker.ColorPickerView;
 import java.util.ArrayList;
 import java.util.List;
 
-public class NotificationDrawerStyle extends SettingsPreferenceFragment implements
+public class NotificationDrawer extends SettingsPreferenceFragment implements
         OnPreferenceChangeListener {
 
     private static final String TAG = "NotificationDrawerStyle";
