@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2013 The Android Open Source Project
+<!-- Copyright (C) 2007 The Android Open Source Project
+	 Copyright (C) 2012 The CyanogenMod Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -13,14 +14,11 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<resources xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <style name="AppTheme" parent="android:Theme.Holo" >
-        <item name="android:actionBarStyle">@style/action_bar_style</item>
-        <item name="android:buttonStyle">@style/button_style</item>
-        <item name="android:fontFamily">sans-serif-condensed</item>
-        <item name="android:textViewStyle">@style/text_view_style</item>
-        <item name="android:windowBackground">@color/cr_background</item>
-    </style>
+<resources>
+
+    <color name="cr_background">#ff000000</color>
+    <color name="action_bar_color">#ff0d0d0d</color>
+    <color name="color_pager_tab_strip">#0d0d0d</color>
 
 </resources>

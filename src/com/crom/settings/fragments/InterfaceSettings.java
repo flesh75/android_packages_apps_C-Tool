@@ -96,13 +96,16 @@ public class InterfaceSettings extends SettingsPreferenceFragment
     private static final String KEY_RECENTS_RAM_BAR = "recents_ram_bar";
     private static final String KEY_RECENTS_ASSIST = "recents_target_assist";
     private static final String KEY_LOW_BATTERY_WARNING_POLICY = "pref_low_battery_warning_policy";
-    private static final String PREF_NOTIFICATION_SHOW_WIFI_SSID = "notification_show_wifi_ssid";
 
     private CheckBoxPreference mShowActionOverflow;
     private CheckBoxPreference mUseAltResolver;
     private CheckBoxPreference mShowAssistButton;
+<<<<<<< HEAD:src/com/crom/settings/fragments/InterfaceSettings.java
     private CheckBoxPreference mShowWifiName;
     private Preference mLcdDensity;
+=======
+    private Preference mColorSettings;
+>>>>>>> 6f04ab1... Initial cleanup:src/com/carbon/settings/fragments/InterfaceSettings.java
     private Preference mHardwareKeys;
     private Preference mRamBar;
     private ListPreference mLowBatteryWarning;
@@ -164,6 +167,7 @@ public class InterfaceSettings extends SettingsPreferenceFragment
         // Dont display the lock clock preference if its not installed
         removePreferenceIfPackageNotInstalled(findPreference(KEY_LOCK_CLOCK));
 
+<<<<<<< HEAD:src/com/crom/settings/fragments/InterfaceSettings.java
         mShowWifiName = (CheckBoxPreference) findPreference(PREF_NOTIFICATION_SHOW_WIFI_SSID);
         mShowWifiName.setChecked(Settings.System.getInt(getActivity().getContentResolver(),
                 Settings.System.NOTIFICATION_SHOW_WIFI_SSID, 0) == 1);
@@ -186,6 +190,8 @@ public class InterfaceSettings extends SettingsPreferenceFragment
             prefSet.removePreference(mShowWifiName);
         }
 
+=======
+>>>>>>> 6f04ab1... Initial cleanup:src/com/carbon/settings/fragments/InterfaceSettings.java
         setHasOptionsMenu(true);
     }
 
@@ -253,11 +259,6 @@ public class InterfaceSettings extends SettingsPreferenceFragment
             Settings.System.putInt(mContentAppRes,
                     Settings.System.RECENTS_TARGET_ASSIST,
             mShowAssistButton.isChecked() ? 1 : 0 );
-        } else if (preference == mShowWifiName) {
-            Settings.System.putInt(getActivity().getContentResolver(),
-                    Settings.System.NOTIFICATION_SHOW_WIFI_SSID,
-                    mShowWifiName.isChecked() ? 1 : 0);
-            return true;
         }
 
         return super.onPreferenceTreeClick(preferenceScreen, preference);

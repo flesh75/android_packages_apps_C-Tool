@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <!-- Copyright (C) 2012 The CyanogenMod Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
@@ -17,52 +17,69 @@
 <PreferenceScreen
     xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <!-- Notification drawer Power Widget -->
     <PreferenceCategory
-        android:key="pref_buttons"
-        android:title="@string/title_buttons" />
+       android:title="@string/power_widget_title">
+
+        <CheckBoxPreference
+            android:key="expanded_widget"
+            android:title="@string/title_expanded_widget"
+            android:defaultValue="false" />
+
+        <PreferenceScreen
+            android:key="widget_picker"
+            android:title="@string/title_widget_picker"
+            android:summary="@string/summary_widget_picker"
+            android:dependency="expanded_widget"
+            android:fragment="com.crom.settings.fragments.statusbar.PowerWidget$PowerWidgetChooser">
+        </PreferenceScreen>
+
+        <PreferenceScreen
+            android:key="widget_order"
+            android:title="@string/title_widget_order"
+            android:summary="@string/summary_widget_order"
+            android:dependency="expanded_widget"
+            android:fragment="com.crom.settings.fragments.statusbar.PowerWidget$PowerWidgetOrder">
+        </PreferenceScreen>
+
+    </PreferenceCategory>
 
     <PreferenceCategory
-        android:key="pref_buttons_modes"
-        android:title="@string/title_button_modes">
+       android:title="@string/power_widget_behavior">
 
-        <MultiSelectListPreference
-            android:key="pref_brightness_mode"
-            android:dialogTitle="@string/pref_brightness_mode_title"
-            android:title="@string/pref_brightness_mode_title"
-            android:summary="@string/pref_brightness_mode_summary"
-            android:entries="@array/entries_brightness_widget"
-            android:entryValues="@array/values_brightness_widget"
-            android:persistent="false" />
+        <CheckBoxPreference
+            android:key="expanded_hide_onchange"
+            android:title="@string/title_expanded_hide_onchange"
+            android:defaultValue="false"
+            android:dependency="expanded_widget" />
 
-        <ListPreference
-            android:key="pref_network_mode"
-            android:dialogTitle="@string/pref_network_mode_title"
-            android:title="@string/pref_network_mode_title"
-            android:entries="@array/entries_network_widget"
-            android:entryValues="@array/values_network_widget" />
+        <CheckBoxPreference
+            android:key="expanded_hide_scrollbar"
+            android:title="@string/title_expanded_hide_scrollbar"
+            android:defaultValue="false"
+            android:dependency="expanded_widget" />
 
         <ListPreference
-            android:key="pref_screentimeout_mode"
-            android:dialogTitle="@string/pref_screentimeout_mode_title"
-            android:title="@string/pref_screentimeout_mode_title"
-            android:entries="@array/entries_screentimeout_widget"
-            android:entryValues="@array/values_screentimeout_widget" />
+            android:key="expanded_haptic_feedback"
+            android:dialogTitle="@string/expanded_haptic_feedback_title"
+            android:title="@string/expanded_haptic_feedback_title"
+            android:entries="@array/haptic_feedback_entries"
+            android:entryValues="@array/haptic_feedback_values"
+            android:dependency="expanded_widget" />
 
-        <MultiSelectListPreference
-            android:key="pref_ring_mode"
-            android:dialogTitle="@string/pref_ring_mode_title"
-            android:title="@string/pref_ring_mode_title"
-            android:summary="@string/pref_ring_mode_summary"
-            android:entries="@array/entries_ring_widget"
-            android:entryValues="@array/values_ring_widget"
-            android:persistent="false" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="additional_options"
+        android:title="@string/power_widget_additional_options_cat">
 
         <ListPreference
-            android:key="pref_flash_mode"
-            android:dialogTitle="@string/pref_flash_mode_title"
-            android:title="@string/pref_flash_mode_title"
-            android:entries="@array/entries_flash_widget"
-            android:entryValues="@array/values_flash_widget" />
+            android:key="brightness_location"
+            android:entries="@array/brightness_location_entries"
+            android:entryValues="@array/brightness_location_values"
+            android:title="@string/brightness_location_title"
+            android:dependency="expanded_widget" />
+
     </PreferenceCategory>
 
 </PreferenceScreen>
