@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.crom.settings.fragments;
+package com.crom.settings.fragments.statusbar;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -44,7 +44,7 @@ import net.margaritov.preference.colorpicker.ColorPickerPreference;
 
 import java.util.Date;
 
-public class StatusBarClockStyle extends SettingsPreferenceFragment
+public class StatusBarClock extends SettingsPreferenceFragment
         implements OnPreferenceChangeListener {
 
     private static final String TAG = "StatusBarClockStyle";

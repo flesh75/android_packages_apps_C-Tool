@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.crom.settings.fragments;
+package com.crom.settings.fragments.statusbar;
 
 import android.content.ContentResolver;
 import android.os.Bundle;
@@ -34,7 +34,7 @@ import com.crom.settings.Utils;
 import com.crom.settings.util.Helpers;
 import net.margaritov.preference.colorpicker.ColorPickerPreference;
 
-public class StatusBar extends SettingsPreferenceFragment implements OnPreferenceChangeListener {
+public class StatusBarGeneral extends SettingsPreferenceFragment implements OnPreferenceChangeListener {
 
     private static final String TAG = "StatusBar";
 
@@ -55,7 +55,6 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
     private CheckBoxPreference mStatusbarSliderPreference;
     private CheckBoxPreference mStatusIconBehavior;
     private ColorPickerPreference mIconColor;
-    private PreferenceScreen mClockStyle;
     private PreferenceCategory mPrefCategoryGeneral;
     private ListPreference mCollapseOnDismiss;
     private ListPreference mStatusBarBeh;
@@ -130,11 +129,6 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
 
         if (Utils.isWifiOnly(getActivity())) {
             mPrefCategoryGeneral.removePreference(mStatusBarCmSignal);
-        }
-
-        mClockStyle = (PreferenceScreen) prefSet.findPreference("clock_style_pref");
-        if (mClockStyle != null) {
-            updateClockStyleDescription();
         }
 
     }
@@ -223,14 +217,6 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
         return super.onPreferenceTreeClick(preferenceScreen, preference);
     }
 
-    private void updateClockStyleDescription() {
-        if (Settings.System.getInt(mContentRes,
-               Settings.System.STATUS_BAR_CLOCK, 1) == 1) {
-            mClockStyle.setSummary(getString(R.string.clock_enabled));
-        } else {
-            mClockStyle.setSummary(getString(R.string.clock_disabled));
-         }
-    }
 
     private void updateStatusBarBehaviorSummary(int value) {
         switch (value) {
@@ -248,11 +234,4 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
                 break;
         }
     }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-        updateClockStyleDescription();
-    }
-
 }

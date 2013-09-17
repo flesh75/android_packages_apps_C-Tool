@@ -1,4 +1,4 @@
-package com.crom.settings.fragments;
+package com.crom.settings.fragments.navbar;
 
 import android.app.Activity;
 import android.app.DialogFragment;

@@ -72,6 +72,8 @@ public class CreateShortcut extends LauncherActivity {
             return R.drawable.ic_crom_pie;
         else if (c.equals("Lockscreen"))
             return R.drawable.ic_crom_lockscreen;
+        else if (c.equals("ScreenStateToggles"))
+            return R.drawable.ic_crom_screen_state;
         else
             return R.mipmap.ic_launcher;
     }

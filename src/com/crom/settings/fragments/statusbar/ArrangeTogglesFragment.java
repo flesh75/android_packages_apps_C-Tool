@@ -1,12 +1,14 @@
-package com.crom.settings.fragments;
 
+package com.crom.settings.fragments.statusbar;
+
+import android.app.AlertDialog;
 import android.app.DialogFragment;
-import android.content.ContentResolver;
 import android.content.Context;
-import android.content.Intent;
+import android.content.DialogInterface;
+import android.content.DialogInterface.OnDismissListener;
+import android.content.DialogInterface.OnMultiChoiceClickListener;
 import android.graphics.Point;
 import android.os.Bundle;
-import android.provider.Settings;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -24,31 +26,30 @@ import com.mobeta.android.dslv.DragSortController;
 import com.mobeta.android.dslv.DragSortListView;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
-public class ArrangeRibbonFragment extends DialogFragment implements OnItemClickListener,
+public class ArrangeTogglesFragment extends DialogFragment implements OnItemClickListener,
         OnCheckedChangeListener {
 
-    private static final String TAG = ArrangeRibbonFragment.class.getSimpleName();
+    private static final String TAG = ArrangeTogglesFragment.class.getSimpleName();
     private static final String PREF_HANDLE_KEY = "toggles_arrange_right_handle";
 
-    ViewGroup rootView;
-    Button mSave;
+    Button mAddToggles;
     Button mClose;
     Switch mToggle;
     DragSortListView mListView;
-    EnabledTargetsAdapter mAdapter;
-    ContentResolver mContentRes;
-    Context mContext;
-    int arrayNum;
+    EnabledTogglesAdapter mAdapter;
 
-    ArrayList<String> aTargets = new ArrayList<String>();
-    ArrayList<String> sTargets = new ArrayList<String>();
-    ArrayList<String> lTargets = new ArrayList<String>();
-    ArrayList<String> cTargets = new ArrayList<String>();
+    ArrayList<String> toggles = new ArrayList<String>();
 
     ViewGroup.LayoutParams params = new ViewGroup.LayoutParams(
             ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
 
+    static ArrangeTogglesFragment newInstance(Bundle toggleInfo) {
+        ArrangeTogglesFragment f = new ArrangeTogglesFragment();
+        f.setArguments(toggleInfo);
+        return f;
+    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -56,33 +57,32 @@ public class ArrangeRibbonFragment extends DialogFragment implements OnItemClick
         super.onCreate(savedInstanceState);
         setShowsDialog(true);
 
+        if (StatusBarToggles.sToggles == null) {
+            StatusBarToggles.sToggles = getArguments();
+        }
         params.width = getActivity().getResources().getDimensionPixelSize(
                 R.dimen.list_toggle_width);
     }
 
-    public void setResources(Context context, ContentResolver res, ArrayList<String> aList,
-                             ArrayList<String> sList,
-                             ArrayList<String> lList, ArrayList<String> cList, int num) {
-        mContext = context;
-        mContentRes = res;
-        aTargets = aList;
-        sTargets = sList;
-        lTargets = lList;
-        cTargets = cList;
-        arrayNum = num;
+    private void updateToggleList() {
+        toggles.clear();
+        for (String t : StatusBarToggles.getEnabledToggles(getActivity())) {
+            toggles.add(t);
+        }
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        rootView = (ViewGroup)
-                inflater.inflate(R.layout.fragment_configure_ribbon,
+        ViewGroup rootView = (ViewGroup)
+                inflater.inflate(R.layout.fragment_configure_toggles,
                         container, false);
 
+        updateToggleList();
         mListView = (DragSortListView) rootView.findViewById(android.R.id.list);
-        mListView.setAdapter(mAdapter = new EnabledTargetsAdapter(getActivity(),
-                aTargets));
+        mListView.setAdapter(mAdapter = new EnabledTogglesAdapter(getActivity(),
+                toggles));
 
         final DragSortController dragSortController = new
                 ConfigurationDragSortController();
@@ -90,27 +90,37 @@ public class ArrangeRibbonFragment extends DialogFragment implements OnItemClick
         mListView.setDropListener(new DragSortListView.DropListener() {
             @Override
             public void drop(int from, int to) {
-                String aName = aTargets.remove(from);
-                aTargets.add(to, aName);
-
-                String sName = sTargets.remove(from);
-                sTargets.add(to, sName);
-
-                String lName = lTargets.remove(from);
-                lTargets.add(to, lName);
-
-                String cName = cTargets.remove(from);
-                cTargets.add(to, cName);
-
+                String name = toggles.remove(from);
+                toggles.add(to, name);
+                StatusBarToggles.setTogglesFromStringArray(getActivity(), toggles);
                 mAdapter.notifyDataSetChanged();
             }
         });
-
+        // final SwipeDismissListViewTouchListener swipeDismissTouchListener =
+        // new SwipeDismissListViewTouchListener(
+        // mListView,
+        // new SwipeDismissListViewTouchListener.DismissCallbacks() {
+        // public boolean canDismiss(int position) {
+        // return position < mAdapter.getCount();
+        // }
+        //
+        // public void onDismiss(ListView listView, int[]
+        // reverseSortedPositions) {
+        // for (int index : reverseSortedPositions) {
+        // StatusBarToggles.removeToggle(getActivity(),
+        // mAdapter.getItem(index));
+        // }
+        // updateToggleList();
+        // mAdapter.notifyDataSetChanged();
+        // }
+        // });
         mListView.setOnItemClickListener(this);
         mListView.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View view, MotionEvent motionEvent) {
                 return dragSortController.onTouch(view, motionEvent);
+                // || (!dragSortController.isDragging()
+                // && swipeDismissTouchListener.onTouch(view, motionEvent));
             }
         });
         mListView.setItemsCanFocus(true);
@@ -123,30 +133,19 @@ public class ArrangeRibbonFragment extends DialogFragment implements OnItemClick
         mClose.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent refreshRibbon =
-                        new Intent(RibbonTargets.RibbonDialogReceiver.ACTION_RIBBON_DIALOG_DISMISS);
-                mContext.sendBroadcast(refreshRibbon);
-                ArrangeRibbonFragment.this.dismiss();
+                ArrangeTogglesFragment.this.dismiss();
             }
         });
 
-        mSave = (Button) rootView.findViewById(R.id.save);
-        mSave.setOnClickListener(new View.OnClickListener() {
+        mAddToggles = (Button) rootView.findViewById(R.id.add_toggles);
+        mAddToggles.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                saveButtons();
+                showToggleSelectionDialog();
             }
         });
-        return rootView;
-    }
 
-    private void saveButtons() {
-        Settings.System.putArrayList(mContentRes, Settings.System.RIBBON_TARGETS_SHORT[arrayNum],
-                sTargets);
-        Settings.System.putArrayList(mContentRes, Settings.System.RIBBON_TARGETS_LONG[arrayNum],
-                lTargets);
-        Settings.System.putArrayList(mContentRes, Settings.System.RIBBON_TARGETS_ICONS[arrayNum],
-                cTargets);
+        return rootView;
     }
 
     @Override
@@ -159,10 +158,10 @@ public class ArrangeRibbonFragment extends DialogFragment implements OnItemClick
         super.onActivityCreated(savedInstanceState);
     }
 
-    private class EnabledTargetsAdapter extends ArrayAdapter<String> {
+    private class EnabledTogglesAdapter extends ArrayAdapter<String> {
 
-        public EnabledTargetsAdapter(Context context, ArrayList<String> targets) {
-            super(context, android.R.id.text1, targets);
+        public EnabledTogglesAdapter(Context context, ArrayList<String> toggles) {
+            super(context, android.R.id.text1, toggles);
         }
 
         @Override
@@ -179,7 +178,8 @@ public class ArrangeRibbonFragment extends DialogFragment implements OnItemClick
             TextView descriptionView = (TextView) convertView
                     .findViewById(android.R.id.text2);
 
-            titleView.setText(mAdapter.getItem(position));
+            titleView.setText(StatusBarToggles.lookupToggle(getActivity(),
+                    mAdapter.getItem(position)));
             descriptionView.setText(mAdapter.getItem(position));
 
             return convertView;
@@ -189,7 +189,7 @@ public class ArrangeRibbonFragment extends DialogFragment implements OnItemClick
     private class ConfigurationDragSortController extends DragSortController {
 
         public ConfigurationDragSortController() {
-            super(ArrangeRibbonFragment.this.mListView, R.id.drag_handle,
+            super(ArrangeTogglesFragment.this.mListView, R.id.drag_handle,
                     DragSortController.ON_DRAG, 0);
             setRemoveEnabled(false);
             setSortEnabled(true);
@@ -199,12 +199,12 @@ public class ArrangeRibbonFragment extends DialogFragment implements OnItemClick
         @Override
         public void onDragFloatView(View floatView, Point floatPoint, Point touchPoint) {
             floatView.setLayoutParams(params);
-            ArrangeRibbonFragment.this.mListView.setFloatAlpha(0.8f);
+            ArrangeTogglesFragment.this.mListView.setFloatAlpha(0.8f);
         }
 
         @Override
         public View onCreateFloatView(int position) {
-            View v = mAdapter.getView(position, null, ArrangeRibbonFragment.this.mListView);
+            View v = mAdapter.getView(position, null, ArrangeTogglesFragment.this.mListView);
             v.setLayoutParams(params);
             return v;
         }
@@ -215,6 +215,55 @@ public class ArrangeRibbonFragment extends DialogFragment implements OnItemClick
 
     }
 
+    private void showToggleSelectionDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+
+        final ArrayList<String> allToggles = StatusBarToggles.sToggles
+                .getStringArrayList("toggles");
+        Collections.sort(allToggles);
+
+        // build arrays for dialog
+        final String items[] = new String[allToggles.size()];
+        final String itemStrings[] = new String[allToggles.size()];
+        final boolean checkedItems[] = new boolean[allToggles.size()];
+
+        // set strings
+        for (int i = 0; i < items.length; i++) {
+            items[i] = allToggles.get(i);
+            itemStrings[i] = StatusBarToggles.lookupToggle(getActivity(), items[i]);
+        }
+
+        // check current toggles
+        for (int i = 0; i < checkedItems.length; i++) {
+            checkedItems[i] = toggles.contains(items[i]);
+        }
+
+        builder.setTitle(R.string.toggle_dialog_add_toggles);
+        builder.setCancelable(true);
+        builder.setOnDismissListener(new OnDismissListener() {
+            @Override
+            public void onDismiss(DialogInterface dialog) {
+                dialog.dismiss();
+                updateToggleList();
+                mAdapter.notifyDataSetChanged();
+            }
+        });
+        builder.setPositiveButton(R.string.back, null);
+        builder.setMultiChoiceItems(itemStrings, checkedItems,
+                new OnMultiChoiceClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which, boolean isChecked) {
+                        String toggleKey = allToggles.get(which);
+                        if (isChecked) {
+                            StatusBarToggles.addToggle(getActivity(), toggleKey);
+                        } else {
+                            StatusBarToggles.removeToggle(getActivity(), toggleKey);
+                        }
+                    }
+                });
+        AlertDialog d = builder.create();
+        d.show();
+    }
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -233,10 +282,8 @@ public class ArrangeRibbonFragment extends DialogFragment implements OnItemClick
     @Override
     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
         setUseRightSideHandle(isChecked);
-        ArrangeRibbonFragment f = new ArrangeRibbonFragment();
-        f.setResources(mContext, mContentRes, aTargets, sTargets,
-                lTargets, cTargets, arrayNum);
         dismiss();
+        ArrangeTogglesFragment f = ArrangeTogglesFragment.newInstance(getArguments());
         f.show(getFragmentManager(), getTag());
     }
 

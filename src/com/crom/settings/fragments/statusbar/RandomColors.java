@@ -1,5 +1,5 @@
 
-package com.crom.settings.fragments;
+package com.crom.settings.fragments.statusbar;
 
 import android.os.Bundle;
 import android.preference.Preference;
