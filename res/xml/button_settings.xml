@@ -23,7 +23,7 @@
         android:defaultValue="false"
         android:persistent="false" />
 
-    <com.crom.settings.fragments.ButtonBacklightBrightness
+    <com.crom.settings.fragments.inter.ButtonBacklightBrightness
         android:key="button_backlight"
         android:title="@string/button_backlight_title"
         android:dialogTitle="@string/button_backlight_title"
