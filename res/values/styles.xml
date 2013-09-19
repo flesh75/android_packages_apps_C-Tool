@@ -20,17 +20,11 @@
     </style>
 
     <style name="text_view_style" parent="android:Widget.TextView">
-        <item name="android:fontFamily">sans-serif-condensed</item>
+        <item name="android:fontFamily">sans-serif-light</item>
     </style>
 
     <style name="button_style" parent="android:Widget.Holo.Button">
         <item name="android:fontFamily">sans-serif-light</item>
-    </style>
-
-    <style name="TextAppearance.PagerTabs" parent="@android:style/TextAppearance.DeviceDefault.Small">
-        <item name="android:fontFamily">sans-serif-condensed</item>
-        <item name="android:textAllCaps">true</item>
-        <item name="android:textStyle">bold</item>
     </style>
 
     <style name="Theme.CreateShortCut" parent="android:Theme.Holo.DialogWhenLarge" />

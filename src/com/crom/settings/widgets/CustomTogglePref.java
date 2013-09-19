@@ -5,9 +5,8 @@ import android.preference.Preference;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.LinearLayout;
-
 import com.crom.settings.R;
-import com.crom.settings.fragments.statusbar.StatusBarToggles;
+import com.crom.settings.fragments.StatusBarToggles;
 
 public class CustomTogglePref extends Preference {
 

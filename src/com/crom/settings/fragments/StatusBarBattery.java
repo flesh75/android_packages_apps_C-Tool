@@ -1,5 +1,5 @@
 
-package com.crom.settings.fragments.statusbar;
+package com.crom.settings.fragments;
 
 import android.os.Bundle;
 import android.preference.CheckBoxPreference;

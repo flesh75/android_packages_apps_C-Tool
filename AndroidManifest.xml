@@ -43,16 +43,6 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".device.DeviceTools"
-            android:label="@string/device_tools_title" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.DEFAULT" />
-                <category android:name="com.crom.settings.SHORTCUT" />
-            </intent-filter>
-        </activity>
-        <activity
             android:name=".fragments.DensityChanger"
             android:label="@string/lcd_density_wizard" >
             <intent-filter>
@@ -98,24 +88,6 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".fragments.navbar.NavigationTab"
-            android:label="@string/title_navbar" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="com.crom.settings.SHORTCUT" />
-              </intent-filter>
-        </activity>
-        <activity
-            android:name=".fragments.navbar.WidgetConfigurationFragment"
-            android:label="@string/title_navbar" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="com.crom.settings.SHORTCUT" />
-              </intent-filter>
-        </activity>
-        <activity
             android:name=".fragments.notificationshortcuts.NotificationShortcuts"
             android:label="notification_shortcuts_settings_title" >
             <intent-filter>
@@ -133,6 +105,7 @@
                 <category android:name="com.crom.settings.SHORTCUT" />
             </intent-filter>
         </activity>
+
         <activity
             android:name=".fragments.PowerMenu"
             android:label="@string/power_menu_title" >
@@ -143,7 +116,16 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".fragments.ribbon.RibbonTargets"
+            android:name=".fragments.PowerWidget"
+            android:label="@string/power_widget_title" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="com.crom.settings.SHORTCUT" />
+              </intent-filter>
+        </activity>
+        <activity
+            android:name=".fragments.RibbonTargets"
             android:label="@string/title_ribbon" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -152,7 +134,7 @@
               </intent-filter>
         </activity>
         <activity
-            android:name=".fragments.statusbar.StatusBarTab"
+            android:name=".fragments.StatusBar"
             android:label="@string/status_bar_title" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -161,17 +143,53 @@
               </intent-filter>
         </activity>
         <activity
-            android:name=".fragments.statusbar.RandomColors"
-            android:label="@string/status_bar_title" >
+            android:name=".fragments.StatusBarBattery"
+            android:label="@string/status_bar_battery_title" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="com.crom.settings.SHORTCUT" />
-            </intent-filter>
+              </intent-filter>
+        </activity>
+        <activity
+            android:name=".fragments.StatusBarClockStyle"
+            android:label="@string/status_bar_clock" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="com.crom.settings.SHORTCUT" />
+              </intent-filter>
+        </activity>
+        <activity
+            android:name=".fragments.StatusBarToggles"
+            android:label="@string/toggles_title" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="com.crom.settings.SHORTCUT" />
+              </intent-filter>
         </activity>
         <activity
             android:name=".fragments.MoreDeviceSettings"
             android:label="@string/more_device_controls_title" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="com.crom.settings.SHORTCUT" />
+              </intent-filter>
+        </activity>
+        <activity
+            android:name=".fragments.NavRingTargets"
+            android:label="@string/title_navring" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="com.crom.settings.SHORTCUT" />
+              </intent-filter>
+        </activity>
+        <activity
+            android:name=".fragments.Navbar"
+            android:label="@string/title_navbar" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -189,11 +207,12 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".fragments.halo.HaloTab"
+            android:name=".fragments.Halo"
             android:label="@string/halo_title">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="com.crom.settings.SHORTCUT" />
             </intent-filter>
         </activity>
@@ -248,6 +267,15 @@
 
   	       <category android:name="android.intent.category.DEFAULT" />
           </intent-filter>
+        </activity>
+        <activity
+            android:name="com.crom.settings.device.DeviceTools"
+            android:label="@string/device_tools_title" >
+            <intent-filter>
+                <action android:name="com.crom.action.LAUNCH_DEVICE_SETTINGS" />
+
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
         </activity>
         <receiver android:name=".device.DeviceStartup">
             <intent-filter android:priority="100">

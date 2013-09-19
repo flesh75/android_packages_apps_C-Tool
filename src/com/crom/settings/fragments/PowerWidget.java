@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.crom.settings.fragments.statusbar;
+package com.crom.settings.fragments;
 
 import java.util.ArrayList;
 import java.util.Arrays;

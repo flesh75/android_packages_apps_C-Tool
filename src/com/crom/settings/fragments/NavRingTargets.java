@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package com.crom.settings.fragments.navbar;
+package com.crom.settings.fragments;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -67,7 +67,7 @@ import java.util.ArrayList;
 import static com.android.internal.util.crom.AwesomeConstants.ASSIST_ICON_METADATA_NAME;
 import static com.android.internal.util.crom.AwesomeConstants.AwesomeConstant;
 
-public class NavigationRingTargets extends SettingsPreferenceFragment implements
+public class NavRingTargets extends SettingsPreferenceFragment implements
         ShortcutPickerHelper.OnPickListener, GlowPadView.OnTriggerListener {
     private static final String TAG = "NavRing";
     private static final boolean DEBUG = false;

@@ -1,5 +1,5 @@
 
-package com.crom.settings.fragments.statusbar;
+package com.crom.settings.fragments;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -97,6 +97,7 @@ public class StatusBarToggles extends SettingsPreferenceFragment implements
     private static final String PREF_TILE_BACKGROUND_COLOR = "tile_background_color";
     private static final String PREF_TILE_BACKGROUND_PRESSED_COLOR = "tile_background_pressed_color";
     private static final String PREF_TILE_TEXT_COLOR = "tile_text_color";
+    private static final String PREF_RANDOM_COLORS = "random_colors";
 
     private final int PICK_CONTACT = 1;
 
@@ -127,6 +128,7 @@ public class StatusBarToggles extends SettingsPreferenceFragment implements
     ColorPickerPreference mTileBgColor;
     ColorPickerPreference mTileBgPresColor;
     ColorPickerPreference mTileTextColor;
+    Preference mRandomColors;
 
     BroadcastReceiver mReceiver;
     ArrayList<String> mToggles;
@@ -227,6 +229,8 @@ public class StatusBarToggles extends SettingsPreferenceFragment implements
 
         mCustomCat = (PreferenceGroup) findPreference(PREF_CUSTOM_CAT);
         mCustomButtons = (PreferenceGroup) findPreference(PREF_CUSTOM_BUTTONS);
+
+        mRandomColors = (Preference) findPreference(PREF_RANDOM_COLORS);
 
         mTileBgStyle = (ListPreference) findPreference(PREF_TILE_BACKGROUND_STYLE);
         mTileBgStyle.setOnPreferenceChangeListener(this);
@@ -474,6 +478,13 @@ public class StatusBarToggles extends SettingsPreferenceFragment implements
                         }
                     });
             ad.show();
+       } else if (preference == mRandomColors) {
+            FragmentTransaction ft = getFragmentManager().beginTransaction();
+            RandomColors fragment = new RandomColors();
+            ft.addToBackStack("pick_random_colors");
+            ft.replace(this.getId(), fragment);
+            ft.commit();
+            return true;
         }
         return super.onPreferenceTreeClick(preferenceScreen, preference);
     }
@@ -482,12 +493,15 @@ public class StatusBarToggles extends SettingsPreferenceFragment implements
         int visible = Settings.System.getInt(mContentRes,
                     Settings.System.QUICK_SETTINGS_BACKGROUND_STYLE, 2);
         if (visible == 2) {
+            mRandomColors.setEnabled(false);
             mTileBgColor.setEnabled(false);
             mTileBgPresColor.setEnabled(false);
         } else if (visible == 1) {
+            mRandomColors.setEnabled(false);
             mTileBgColor.setEnabled(true);
             mTileBgPresColor.setEnabled(true);
         } else {
+            mRandomColors.setEnabled(true);
             mTileBgColor.setEnabled(false);
             mTileBgPresColor.setEnabled(true);
         }

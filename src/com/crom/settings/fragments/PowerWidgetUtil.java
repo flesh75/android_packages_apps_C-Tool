@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.crom.settings.fragments.statusbar;
+package com.crom.settings.fragments;
 
 import com.android.internal.telephony.PhoneConstants;
 import com.crom.settings.R;
