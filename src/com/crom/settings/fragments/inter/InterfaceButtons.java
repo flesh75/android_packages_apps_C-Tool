@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.crom.settings.fragments;
+package com.crom.settings.fragments.inter;
 
 import android.content.ContentResolver;
 import android.content.res.Resources;
@@ -31,7 +31,7 @@ import com.crom.settings.R;
 import com.crom.settings.SettingsPreferenceFragment;
 import com.crom.settings.Utils;
 
-public class ButtonSettings extends SettingsPreferenceFragment implements
+public class InterfaceButtons extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
 
     private static final String KEY_ENABLE_CUSTOM_BINDING = "hardware_keys_enable_custom";

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.crom.settings.fragments;
+package com.crom.settings.fragments.inter;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;

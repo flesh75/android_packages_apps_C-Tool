@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.crom.settings.fragments;
+package com.crom.settings.fragments.inter;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -44,7 +44,7 @@ import com.crom.settings.util.CMDProcessor;
 import com.crom.settings.util.CMDProcessor.CommandResult;
 import com.crom.settings.util.Helpers;
 
-public class DensityChanger extends SettingsPreferenceFragment implements
+public class InterfaceDensity extends SettingsPreferenceFragment implements
         OnPreferenceChangeListener {
 
     private static final String TAG = "DensityChanger";
