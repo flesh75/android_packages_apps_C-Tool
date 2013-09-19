@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.carbon.settings.device;
+package com.crom.settings.device;
 
 import android.app.ActionBar;
 import android.app.Activity;
@@ -32,12 +32,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.carbon.settings.R;
-import com.carbon.settings.SettingsPreferenceFragment;
-import com.carbon.settings.Utils;
+import com.crom.settings.R;
+import com.crom.settings.SettingsPreferenceFragment;
+import com.crom.settings.Utils;
 
 // import htc one stuffs
-import com.carbon.settings.device.htc.*;
+import com.crom.settings.device.htc.*;
 // import the other stuffs
 
 import java.util.ArrayList;

@@ -37,11 +37,11 @@
                     android:key="navbar_hide_enable"
                     android:title="@string/navbar_hide_enable_title" />
 
-            <com.carbon.settings.widgets.SeekBarPreference
+            <com.crom.settings.widgets.SeekBarPreference
                 android:key="drag_handle_opacity"
                 android:title="@string/drag_handle_opacity_title"/>
 
-            <com.carbon.settings.widgets.SeekBarPreference
+            <com.crom.settings.widgets.SeekBarPreference
                 android:key="drag_handle_width"
                 android:title="@string/drag_handle_width_title"/>
 
@@ -61,7 +61,7 @@
             <PreferenceScreen
                 android:key="navigation_bar_widgets"
                 android:title="@string/navbar_widgets_title"
-                android:fragment="com.carbon.settings.fragments.navbar.WidgetConfigurationFragment" />
+                android:fragment="com.crom.settings.fragments.navbar.WidgetConfigurationFragment" />
 
         </PreferenceCategory>
 
