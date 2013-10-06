@@ -44,7 +44,7 @@ import com.crom.settings.util.CMDProcessor;
 import com.crom.settings.util.CMDProcessor.CommandResult;
 import com.crom.settings.util.Helpers;
 
-public class InterfaceDensity extends SettingsPreferenceFragment implements
+public class DensityChanger extends SettingsPreferenceFragment implements
         OnPreferenceChangeListener {
 
     private static final String TAG = "DensityChanger";
