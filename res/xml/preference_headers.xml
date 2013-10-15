@@ -83,10 +83,4 @@
         android:fragment="com.crom.settings.fragments.MoreDeviceSettings"
         android:icon="@drawable/ic_crom_device" />
 
-    <header
-        android:id="@+id/wakelock_blocker"
-        android:fragment="com.crom.settings.fragments.WakeLockBlocker"
-        android:icon="@drawable/ic_crom_wakelock_blocker"
-        android:title="@string/wakelock_blocker" />
-
 </preference-headers>
