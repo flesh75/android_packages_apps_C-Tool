@@ -87,13 +87,11 @@
         android:id="@+id/screen_state_service"
         android:fragment="com.crom.settings.fragments.ScreenStateToggles"
         android:icon="@drawable/ic_crom_screen_state"
-        android:title="@string/screen_state_toggles_title"
-        android:summary="@string/screen_state_toggles_summary" />
+        android:title="@string/screen_state_toggles_title" />
 
     <header
         android:id="@+id/wakelock_blocker"
         android:fragment="com.crom.settings.fragments.WakeLockBlocker"
         android:icon="@drawable/ic_crom_wakelock_blocker"
-        android:title="@string/wakelock_blocker"
-        android:summary="@string/wakelock_blocker_header_summary" />
+        android:title="@string/wakelock_blocker" />
 </preference-headers>
