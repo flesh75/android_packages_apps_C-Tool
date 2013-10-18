@@ -31,4 +31,7 @@
 
     <color name="color_pager_tab_strip">#2c2c2c</color>
 
+    <!-- Gesture Anywhere -->
+    <color name="ga_gesture_color">@android:color/holo_blue_light</color>
+
 </resources>

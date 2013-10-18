@@ -68,6 +68,12 @@
         android:icon="@drawable/ic_crom_statusbar" />
 
    <header
+        android:id="@+id/gesture_anywhere"
+        android:fragment="com.crom.settings.fragments.gesture.GestureAnywhereSettings"
+        android:icon="@drawable/ic_crom_gesture_anywhere"
+        android:title="@string/title_gesture_anywhere" />
+
+   <header
         android:title="@string/system" />
 
    <header

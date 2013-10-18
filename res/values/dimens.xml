@@ -66,4 +66,8 @@
     <!--  Radius of NavRing in Tablet Mode Landscape -->
     <dimen name="navring_radius_tablet_portrait">240dp</dimen>
 
+    <!-- Gesture Anywhere -->
+    <dimen name="ga_gesture_thumbnail_inset">8dip</dimen>
+    <dimen name="ga_gesture_thumbnail_size">64dip</dimen>
+
 </resources>
