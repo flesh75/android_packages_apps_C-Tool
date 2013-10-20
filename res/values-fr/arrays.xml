@@ -103,7 +103,7 @@
 
     <string-array name="battery_bar_entries">
         <item>Masquer</item>
-        <item>Barre d'état</item>
+        <item>Barre d\'état</item>
         <item>Dans la barre de navigation</item>
         <item>Sous la barre de navigation</item>
     </string-array>
