@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+
+
+    <string-array name="entries_network_widget">
+        <item>2G/3G+2G</item>  
+        <item>仅 2G/3G </item>   
+        <item>仅 2G/3G/3G+2G</item>
+    </string-array>
+
+    <string-array name="entries_screentimeout_widget">
+        <item>15s/1m/5m</item>
+        <item>30s/2m/5m</item>
+    </string-array>
+
+
+    <string-array name="entries_flash_widget">
+        <item>正常亮度</item>
+        <item>高亮度</item>
+    </string-array>
+
+
+    <string-array name="haptic_feedback_entries">
+        <item>使用系统设置</item>
+        <item>开启</item>
+        <item>关闭</item>
+    </string-array>
+
+    <string-array name="lockscreen_long_key_press_values" translatable="false">
+        <item></item>
+        <item>NEXT</item>
+        <item>PREVIOUS</item>
+        <item>PLAYPAUSE</item>
+        <item>SOUND</item>
+    </string-array>
+
+    <string-array name="entries_status_bar_am_pm">
+        <item>正常</item>
+        <item>小</item>
+        <item>不显示</item>
+    </string-array>
+
+    <string-array name="clock_date_display_entries">
+        <item>不显示</item>
+        <item>缩小日期</item>
+        <item>正常日期</item>
+    </string-array>
+
+    <string-array name="clock_date_style_entries">
+        <item>正常</item>
+        <item>小写</item>
+        <item>大写</item>
+    </string-array>
+
+    <string-array name="clock_date_format_entries">
+        <item>dd/MM/yy</item>
+        <item>MM/dd/yy</item>
+        <item>yyyy-MM-dd</item>
+        <item>yyyy-dd-MM</item>
+        <item>dd-MM-yyyy</item>
+        <item>MM-dd-yyyy</item>
+        <item>MMM dd</item>
+        <item>MMM dd, yyyy</item>
+        <item>MMMM dd, yyyy</item>
+        <item>EEE</item>
+        <item>EEE dd</item>
+        <item>EEE dd/MM</item>
+        <item>EEE MM/dd</item>
+        <item>EEE dd MMM</item>
+        <item>EEE MMM dd</item>
+        <item>EEE MMMM dd</item>
+        <item>EEEE dd/MM</item>
+        <item>EEEE MM/dd</item>
+        <item>自定义格式(Java)</item>
+    </string-array>
+
+    <string-array name="clock_date_format_values">
+        <item>dd/MM/yy</item>
+        <item>MM/dd/yy</item>
+        <item>yyyy-MM-dd</item>
+        <item>yyyy-dd-MM</item>
+        <item>dd-MM-yyyy</item>
+        <item>MM-dd-yyyy</item>
+        <item>MMM dd</item>
+        <item>MMM dd, yyyy</item>
+        <item>MMMM dd, yyyy</item>
+        <item>EEE</item>
+        <item>EEE dd</item>
+        <item>EEE dd/MM</item>
+        <item>EEE MM/dd</item>
+        <item>EEE dd MMM</item>
+        <item>EEE MMM dd</item>
+        <item>EEE MMMM dd</item>
+        <item>EEEE dd/MM</item>
+        <item>EEEE MM/dd</item>
+        <item>自定义格式(Java)</item>
+    </string-array>
+
+    <string-array name="battery_bar_entries">
+        <item>不显示</item>
+        <item>屏幕顶端</item>
+        <item>导航栏顶端</item>
+        <item>导航栏底部</item>
+    </string-array>
+
+    <string-array name="battery_bar_style_entries">
+        <item>默认</item>
+        <item>居中</item>
+    </string-array>
+
+    <!-- Notification Shortcuts -->
+    <string-array name="notification_shortcuts_quantity_entries" translatable="false">
+        <item>4</item>
+        <item>6 (默认)</item>
+        <item>8</item>
+        <item>10</item>
+        <item>12</item>
+        <item>14</item>
+        <item>16</item>
+    </string-array>
+
+
+    <string-array name="hide_navbar_timeout_entries" translatable="false">
+        <item>从不隐藏</item>
+        <item>.5 秒</item>
+        <item>1 秒</item>
+        <item>1.5 秒</item>
+        <item>3 秒</item>
+        <item>5 秒</item>
+        <item>10 秒</item>
+        <item>15 秒</item>
+        <item>30 秒</item>
+    </string-array>
+
+
+    <!-- Screenshot delay -->
+    <string-array name="screenshot_delay_entries" translatable="false">
+        <item>2 秒</item>
+        <item>3 秒</item>
+        <item>4 秒</item>
+        <item>5 秒</item>
+        <item>6 秒</item>
+        <item>7 秒</item>
+        <item>8 秒</item>
+    </string-array>
+
+    <!-- Notification behavior preferences -->
+    <string-array name="notifs_beh_entries">
+        <item>正常</item>
+        <item>通知从不展开</item>
+        <item>通知总是展开</item>
+        <item>Android 4.0风格</item>
+    </string-array>
+
+    <!-- network usage stats -->
+    <string-array name="entries_status_bar_network_stats_update">
+        <item>&#189; 秒</item>
+        <item>间隔 1 秒</item>
+        <item>间隔 2 秒</item>
+        <item>间隔 5 秒</item>
+    </string-array>
+    
+</resources>
